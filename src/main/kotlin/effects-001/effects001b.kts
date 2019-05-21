@@ -33,7 +33,7 @@ import org.openrndr.workshop.toolkit.filters.VerticalStepWaves
                 draw {
                     drawer.fill = ColorRGBa.WHITE
                     drawer.stroke = null
-                    drawer.circle(Vector2(width / 2.0, height / 2.0), 200.0)
+                    drawer.circle(Vector2(width / 2.0, height / 2.0), 100.0)
                 }
             }
         }
