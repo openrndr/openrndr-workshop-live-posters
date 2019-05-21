@@ -8,16 +8,15 @@ import org.openrndr.extra.olive.Olive
 
 fun main() = application {
     configure {
-        width = 768
-        height = 576
+        width = 480
+        height = 640
     }
 
     program {
 
         extend(Olive<Program>()) {
-            script = "src/main/kotlin/poster-script-01.kts"
+            script = "src/main/kotlin/animations/animations001b.kts"
         }
-
 
     }
 }
