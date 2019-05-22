@@ -16,13 +16,10 @@ fun Rectangle.translated(vector2: Vector2): Rectangle {
     return Rectangle(corner + vector2, width, height)
 }
 
-{ program: Program ->
+{ program: PersistentRssProgram ->
     program.apply {
 
-        val articles = RSSParser.parse(URL("http://feeds.nos.nl/nosnieuwsalgemeen"))
-
         println("I got ${articles.size} articles")
-
 
         extend(Screenshots().apply {
             scale = 4.0
@@ -47,7 +44,7 @@ fun Rectangle.translated(vector2: Vector2): Rectangle {
                 blend(Multiply())
                 draw {
                     drawer.background(ColorRGBa.BLACK)
-                    drawer.fill = ColorRGBa.PINK
+                    drawer.fill = ColorRGBa.WHITE
                     drawer.stroke = null
                     drawer.circle(Vector2(width / 2.0, height / 2.0) + Vector2(0.0, Math.sin(seconds) * 50.0), 300.0)
                 }

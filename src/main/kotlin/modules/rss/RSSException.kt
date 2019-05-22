@@ -6,7 +6,7 @@ package org.openrndr.rss
  * User: edwinjakobs
  * Date: 6/25/13
  * Time: 17:16
- * To change this template use File | Settings | File Templates.
+ * To change this template-001 use File | Settings | File Templates.
  */
 open class RSSException : Exception {
 

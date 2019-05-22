@@ -29,7 +29,7 @@ import org.openrndr.numate.storyboard
                     a::position to newPosition during Math.max(0.1, length/200.0) eased inOutExpo
                 }
                 draw {
-                    drawer.circle(a.position, 100.0)
+                    drawer.circle(a.position, 200.0)
                 }
             }
         }

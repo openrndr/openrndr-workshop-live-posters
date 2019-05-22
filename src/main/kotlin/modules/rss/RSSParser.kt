@@ -37,8 +37,7 @@ object RSSParser {
     @Throws(RSSException::class)
     fun parse(document: Document): List<FeedArticle> {
         val articles = ArrayList<FeedArticle>()
-
-        val docEle = document.getElementsByTag("modules/rss")[0]
+        val docEle = document.getElementsByTag("rss")[0]
         var items = docEle.getElementsByTag("item")
 
         if (items.size == 0) {

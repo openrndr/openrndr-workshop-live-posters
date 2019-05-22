@@ -1,6 +1,6 @@
-# OPENRNDR Gradle template
+# OPENRNDR Gradle template-001
 
-A bare-bones template for writing [OPENRNDR](http://openrndr.org) programs. Contains Gradle project files and a minimal program example.
+A bare-bones template-001 for writing [OPENRNDR](http://openrndr.org) programs. Contains Gradle project files and a minimal program example.
 
 ## Intellij IDE
 
@@ -8,7 +8,7 @@ A bare-bones template for writing [OPENRNDR](http://openrndr.org) programs. Cont
 
 ## Gradle tasks
 
- * `run` runs the template program (with the correct JVM arguments)
+ * `run` runs the template-001 program (with the correct JVM arguments)
  * `jar` creates an überjar that contains the program and all its dependencies
 
 ## Executable Jar

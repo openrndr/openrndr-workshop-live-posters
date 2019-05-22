@@ -2,6 +2,7 @@ import org.openrndr.Program
 import org.openrndr.application
 import org.openrndr.draw.ColorBuffer
 import org.openrndr.extra.olive.Olive
+import org.openrndr.math.IntVector2
 
 class PersistentImagesProgram: Program() {
     val images = mutableListOf<ColorBuffer>()
