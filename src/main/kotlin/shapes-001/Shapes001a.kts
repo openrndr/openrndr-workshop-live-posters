@@ -4,6 +4,7 @@ import org.openrndr.Program
 import org.openrndr.color.ColorRGBa
 import org.openrndr.extensions.Screenshots
 import org.openrndr.extra.compositor.*
+import org.openrndr.filter.blend.Multiply
 import org.openrndr.filter.blend.multiply
 import org.openrndr.math.Vector2
 import org.openrndr.shape.Circle
@@ -36,7 +37,7 @@ import org.openrndr.workshop.toolkit.filters.VerticalStepWaves
             }
 
             layer {
-                blend(multiply)
+                blend(Multiply())
                 draw {
                     drawer.background(ColorRGBa.WHITE)
                     val radius = 5 + (Math.random() * 40.0).toInt()
@@ -53,7 +54,7 @@ import org.openrndr.workshop.toolkit.filters.VerticalStepWaves
             }
 
             layer {
-                blend(multiply)
+                blend(Multiply())
                 draw {
                     drawer.background(ColorRGBa.WHITE)
                     val radius = 5 + (Math.random() * 40.0).toInt()

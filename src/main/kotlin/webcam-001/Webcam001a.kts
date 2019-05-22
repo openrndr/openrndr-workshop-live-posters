@@ -8,6 +8,7 @@ import org.openrndr.draw.RenderTarget
 import org.openrndr.extensions.Screenshots
 import org.openrndr.extra.compositor.*
 import org.openrndr.ffmpeg.FFMPEGVideoPlayer
+import org.openrndr.filter.blend.Multiply
 import org.openrndr.filter.blend.add
 import org.openrndr.filter.blend.multiply
 import org.openrndr.filter.blur.GaussianBlur
@@ -17,7 +18,7 @@ import org.openrndr.workshop.toolkit.filters.VerticalStepWaves
 import org.openrndr.workshop.toolkit.filters.VerticalWaves
 
 
-{ program: PersistentProgram ->
+{ program: PersistentWebcamProgram ->
     program.apply {
 
         val poster = compose {
@@ -32,7 +33,7 @@ import org.openrndr.workshop.toolkit.filters.VerticalWaves
                 }
             }
             layer {
-                blend(multiply)
+                blend(Multiply())
                 draw {
                     drawer.fill = ColorRGBa.RED
                     drawer.stroke = null

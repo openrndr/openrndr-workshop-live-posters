@@ -18,7 +18,7 @@ import org.openrndr.workshop.toolkit.filters.VerticalStepWaves
 import org.openrndr.workshop.toolkit.filters.VerticalWaves
 
 
-{ program: PersistentProgram ->
+{ program: PersistentWebcamProgram ->
     program.apply {
 
         val poster = compose {

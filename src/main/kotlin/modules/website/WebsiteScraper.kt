@@ -3,6 +3,7 @@ package org.openrndr.workshop.toolkit.website
 import com.chimbori.crux.articles.ArticleExtractor
 import org.jsoup.Jsoup
 import org.openrndr.draw.ColorBuffer
+import org.openrndr.draw.Session
 import java.net.URL
 
 fun scrapeWebsite(url:String) : WebsiteContents {
@@ -31,7 +32,9 @@ fun scrapeWebsite(url:String) : WebsiteContents {
             }
 
             println("downloading image from $fixedUrl")
-            images.add(ColorBuffer.fromUrl(fixedUrl))
+            images.add(ColorBuffer.fromUrl(fixedUrl).apply {
+                Session.active.untrack(this)
+            })
         }
     }
     return WebsiteContents(article.title, article.document.text(), images)

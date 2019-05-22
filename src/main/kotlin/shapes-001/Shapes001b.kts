@@ -8,6 +8,7 @@ import org.openrndr.extra.compositor.blend
 import org.openrndr.extra.compositor.compose
 import org.openrndr.extra.compositor.draw
 import org.openrndr.extra.compositor.layer
+import org.openrndr.filter.blend.Multiply
 import org.openrndr.filter.blend.multiply
 import org.openrndr.math.Vector2
 import org.openrndr.shape.Circle
@@ -42,7 +43,7 @@ import org.openrndr.shape.LineSegment
                 }
             }
             layer {
-                blend(multiply)
+                blend(Multiply())
                 draw {
                     drawer.background(ColorRGBa.WHITE)
                     val radius = 15 + (Math.random() * 40.0).toInt()

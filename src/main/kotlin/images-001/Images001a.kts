@@ -3,10 +3,7 @@
 import org.openrndr.PresentationMode
 import org.openrndr.Program
 import org.openrndr.color.ColorRGBa
-import org.openrndr.draw.ColorBuffer
-import org.openrndr.draw.FontImageMap
-import org.openrndr.draw.MagnifyingFilter
-import org.openrndr.draw.MinifyingFilter
+import org.openrndr.draw.*
 import org.openrndr.extensions.Screenshots
 import org.openrndr.extra.compositor.compose
 import org.openrndr.extra.compositor.draw
@@ -23,12 +20,15 @@ fun Rectangle.translated(vector2: Vector2): Rectangle {
     return Rectangle(corner + vector2, width, height)
 }
 
-{ program: Program ->
+{ program: PersistentImagesProgram ->
     program.apply {
+
+
+
+        window.requestDraw()
 
         window.presentationMode = PresentationMode.MANUAL
 
-        val images = mutableListOf<ColorBuffer>()
 
         // -- setup drop event
         window.drop.listen {
@@ -37,7 +37,10 @@ fun Rectangle.translated(vector2: Vector2): Rectangle {
                 if (file.isDirectory) {
                     file.listFiles().forEach {
                         if (it.extension in supportedExtensions) {
-                            images.add(ColorBuffer.fromFile(it.absolutePath))
+                            images.add(ColorBuffer.fromFile(it.absolutePath).apply {
+                                Session.active.untrack(this)
+                            })
+
                         }
                     }
                 }
@@ -45,7 +48,9 @@ fun Rectangle.translated(vector2: Vector2): Rectangle {
                 if (file.isFile) {
                     if (file.extension in supportedExtensions) {
                         println(file.absolutePath)
-                        images.add(ColorBuffer.fromFile(file.absolutePath))
+                        images.add(ColorBuffer.fromFile(file.absolutePath).apply {
+                            Session.active.untrack(this)
+                        })
                     }
                 }
             }
@@ -78,7 +83,7 @@ fun Rectangle.translated(vector2: Vector2): Rectangle {
                             val iw = imageBounds.width * 0.1
                             val ih = imageBounds.height * 0.1
                             val spacing = 2.0
-                            val stacking = 40
+                            val stacking = 100
                             val margin = spacing * stacking
 
                             val targetBounds = Rectangle(Math.random() * (width - iw + margin / 2.0) - margin, Math.random() * (height - ih + margin / 2.0) - margin, imageBounds.width * 0.1, imageBounds.height * 0.1)

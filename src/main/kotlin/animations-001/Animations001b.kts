@@ -7,6 +7,7 @@ import org.openrndr.extra.compositor.blend
 import org.openrndr.extra.compositor.compose
 import org.openrndr.extra.compositor.draw
 import org.openrndr.extra.compositor.layer
+import org.openrndr.filter.blend.Multiply
 import org.openrndr.filter.blend.multiply
 import org.openrndr.math.Vector2
 import org.openrndr.numate.inOutExpo
@@ -24,12 +25,12 @@ import org.openrndr.numate.storyboard
         val poster = compose {
 
             draw {
-                drawer.background(ColorRGBa.PINK)
+                drawer.background(ColorRGBa.BLUE)
             }
 
             for (i in 0 until 5)
                 layer {
-                    blend(multiply)
+                    blend(Multiply())
                     val a = object {
                         var position: Vector2 = Vector2.ZERO
                         var radius: Double = 100.0

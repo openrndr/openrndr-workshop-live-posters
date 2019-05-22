@@ -8,6 +8,7 @@ import org.openrndr.draw.grayscale
 import org.openrndr.extensions.Screenshots
 import org.openrndr.extra.compositor.*
 import org.openrndr.ffmpeg.FFMPEGVideoPlayer
+import org.openrndr.filter.blend.Multiply
 import org.openrndr.filter.blend.add
 import org.openrndr.filter.blend.multiply
 import org.openrndr.filter.blur.GaussianBlur
@@ -17,14 +18,10 @@ import org.openrndr.text.Writer
 import org.openrndr.workshop.toolkit.filters.StepWaves
 import org.openrndr.workshop.toolkit.filters.VerticalStepWaves
 import org.openrndr.workshop.toolkit.filters.VerticalWaves
-import org.openrndr.workshop.toolkit.website.scrapeWebsite
 
 
-{ program: Program ->
+{ program: PersistentScraperProgram ->
     program.apply {
-
-        val url = "https://nos.nl/artikel/2268648-ijsballen-veroorzaken-schade-aan-auto-s-en-een-gewonde.html"
-        val websiteContents = scrapeWebsite(url)
 
         extend(Screenshots().apply {
             scale = 4.0
@@ -46,10 +43,10 @@ import org.openrndr.workshop.toolkit.website.scrapeWebsite
             websiteContents.images.forEach {
                 // -- create a layer for every image, these will be multiply blended
                 layer {
-                    blend(multiply)
+                    blend(Multiply())
                     draw {
                         drawer.background(ColorRGBa.WHITE)
-                        drawer.drawStyle.colorMatrix = grayscale(0.3, 0.3, 0.3)
+                        drawer.drawStyle.colorMatrix = grayscale(0.1, 0.3, 0.3)
                         val imageSize = it.bounds
                         val target = Rectangle(Math.random() * (width - imageSize.width), Math.random() * (height - imageSize.height), imageSize.width, imageSize.height)
                         drawer.image(it, imageSize, target)
@@ -76,7 +73,7 @@ import org.openrndr.workshop.toolkit.website.scrapeWebsite
 
         extend {
             poster.draw(drawer)
-            Thread.sleep(500)
+            Thread.sleep(100)
         }
     }
 }

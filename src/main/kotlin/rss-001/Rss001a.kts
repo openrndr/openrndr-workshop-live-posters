@@ -9,6 +9,7 @@ import org.openrndr.draw.MagnifyingFilter
 import org.openrndr.draw.MinifyingFilter
 import org.openrndr.extensions.Screenshots
 import org.openrndr.extra.compositor.*
+import org.openrndr.filter.blend.Multiply
 import org.openrndr.filter.blend.multiply
 import org.openrndr.math.Vector2
 import org.openrndr.rss.RSSParser
@@ -52,7 +53,7 @@ fun Rectangle.translated(vector2: Vector2): Rectangle {
                 }
             }
             layer {
-                blend(multiply)
+                blend(Multiply())
                 draw {
                     drawer.background(ColorRGBa.BLACK)
                     drawer.fill = ColorRGBa.PINK
