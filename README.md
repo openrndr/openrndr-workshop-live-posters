@@ -1,29 +1,33 @@
-# OPENRNDR Gradle template-001
+# OPENRNDR live poster workshop
 
-A bare-bones template-001 for writing [OPENRNDR](http://openrndr.org) programs. Contains Gradle project files and a minimal program example.
+Examples and ready-mades for live posters.
 
-## Intellij IDE
+In this project we use `orx-olive` to create generative posters. [`orx-live`](https://github.com/openrndr/orx/tree/master/orx-olive) offers functionality to hot-load OPENRNDR programs. We also use [`orx-composistor`](https://github.com/openrndr/orx/tree/master/orx-compositor)
 
-* Click the `run` widget next to `main()` in the left margin/gutter of the source file. 
+## BlendModes
 
-## Gradle tasks
-
- * `run` runs the template-001 program (with the correct JVM arguments)
- * `jar` creates an überjar that contains the program and all its dependencies
-
-## Executable Jar
-
-Command line instructions line for this example:
-
-* For TemplateProgram.kt
-```
-java -jar myjar.jar
+ * `AbsoluteDifference`
+ * `Substract`
+ * `ColorBurn`
+ * `ColorDodge`
+ * `Darken`
+ * `HardLight`
+ * `Lighten`
+ * `Overlay`
+ * `Screen`
+ * `MultiplyContrast`
  
- OR
- 
-java -cp myjar.jar TemplateProgramKt
-```
+## Post Efffects
 
-## On MacOS
-add `-XstartOnFirstThread` to JVM arguments (at Run/Edit Configurations/VM Options if you're using IntelliJ Idea)
-
+* `BoxBlur`
+* `ApproximateGaussianBlur
+* `GradientMap`
+* `Threshold`
+* `EdgeDetect`
+* `Mosaic`
+* `ZoomMosaic`
+* `Separate`
+* `Waves`
+* `StepWaves`
+* `VerticalStepWaves`
+* `VerticalWaves`
