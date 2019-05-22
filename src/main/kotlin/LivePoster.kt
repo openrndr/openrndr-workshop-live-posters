@@ -15,7 +15,7 @@ fun main() = application {
     program {
 
         extend(Olive<Program>()) {
-            script = "src/main/kotlin/animations/animations001b.kts"
+            script = "src/main/kotlin/Animations-001/Animations001a.kts"
         }
 
     }

@@ -1,6 +1,5 @@
 @file:Suppress("UNUSED_LAMBDA_EXPRESSION")
 
-package `effects-001`
 import org.openrndr.Program
 import org.openrndr.color.ColorRGBa
 import org.openrndr.extensions.Screenshots
@@ -11,6 +10,7 @@ import org.openrndr.extra.compositor.post
 import org.openrndr.math.Vector2
 import org.openrndr.workshop.toolkit.filters.StepWaves
 import org.openrndr.workshop.toolkit.filters.VerticalStepWaves
+import org.openrndr.workshop.toolkit.filters.ZoomMosaic
 
 
 { program: Program ->
@@ -22,13 +22,13 @@ import org.openrndr.workshop.toolkit.filters.VerticalStepWaves
 
         val poster = compose {
             layer {
-                post(VerticalStepWaves()) {
-                    phase = seconds
+                post(ZoomMosaic()) {
+                    scale = Math.sin(seconds*10.0) + 2.0
                 }
-
                 draw {
-                    drawer.fill = ColorRGBa.WHITE
-                    drawer.stroke = null
+                    drawer.fill = null
+                    drawer.stroke = ColorRGBa.WHITE
+                    drawer.strokeWeight = 20.0
                     drawer.circle(Vector2(width / 2.0, height / 2.0), 200.0)
                 }
             }

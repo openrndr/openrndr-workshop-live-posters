@@ -1,6 +1,5 @@
 @file:Suppress("UNUSED_LAMBDA_EXPRESSION")
 
-package animations
 import org.openrndr.Program
 import org.openrndr.color.ColorRGBa
 import org.openrndr.extensions.Screenshots

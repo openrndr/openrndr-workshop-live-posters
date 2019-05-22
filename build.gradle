@@ -76,6 +76,7 @@ dependencies {
     // orx-olive, also add the kotlin-scripting-compiler-embeddable dependency below
     compile "com.github.openrndr.orx:orx-olive:v$orxVersion"
     compile "org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:1.3.31"
+    compile "com.github.chimbori:crux:2.0.0"
 
     implementation 'com.github.edwinRNDR:numate:2afc3cf338'
 

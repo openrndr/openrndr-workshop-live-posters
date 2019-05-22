@@ -1,15 +1,15 @@
 @file:Suppress("UNUSED_LAMBDA_EXPRESSION")
 
-package animations
 import org.openrndr.Program
 import org.openrndr.color.ColorRGBa
 import org.openrndr.extensions.Screenshots
 import org.openrndr.extra.compositor.compose
 import org.openrndr.extra.compositor.draw
 import org.openrndr.extra.compositor.layer
+import org.openrndr.extra.compositor.post
 import org.openrndr.math.Vector2
-import org.openrndr.numate.inOutExpo
-import org.openrndr.numate.storyboard
+import org.openrndr.workshop.toolkit.filters.StepWaves
+import org.openrndr.workshop.toolkit.filters.VerticalStepWaves
 
 
 { program: Program ->
@@ -21,20 +21,24 @@ import org.openrndr.numate.storyboard
 
         val poster = compose {
             layer {
-                val a = object {
-                    var position: Vector2 = Vector2.ZERO
+                post(VerticalStepWaves()) {
+                    phase = seconds
+                    steps = 64
+                    period = 64 * Math.PI * 2.0
                 }
-                // https://github.com/edwinRNDR/numate
-                storyboard(loop = true) {
-                    val newPosition = Vector2(Math.random()*width, Math.random()*height)
-                    val length = (newPosition - a.position).length
-                    a::position to newPosition during Math.max(0.1, length/200.0) eased inOutExpo
+                post(StepWaves()) {
+                    phase = seconds
+                    steps = 8
+                    amplitude = 0.5
                 }
                 draw {
-                    drawer.circle(a.position, 100.0)
+                    drawer.fill = ColorRGBa.WHITE
+                    drawer.stroke = null
+                    drawer.circle(Vector2(width / 2.0, height / 2.0), 200.0)
                 }
             }
         }
+
 
         extend {
             poster.draw(drawer)
