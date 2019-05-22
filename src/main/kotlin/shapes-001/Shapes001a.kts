@@ -73,6 +73,7 @@ import org.openrndr.workshop.toolkit.filters.VerticalStepWaves
 
         extend {
             poster.draw(drawer)
+            Thread.sleep(100)
         }
     }
 }

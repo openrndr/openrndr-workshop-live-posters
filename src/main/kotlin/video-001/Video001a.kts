@@ -7,6 +7,7 @@ import org.openrndr.draw.RenderTarget
 import org.openrndr.extensions.Screenshots
 import org.openrndr.extra.compositor.*
 import org.openrndr.ffmpeg.FFMPEGVideoPlayer
+import org.openrndr.filter.blend.Add
 import org.openrndr.filter.blend.add
 import org.openrndr.filter.blur.GaussianBlur
 import org.openrndr.math.Vector2
@@ -15,7 +16,7 @@ import org.openrndr.workshop.toolkit.filters.VerticalStepWaves
 import org.openrndr.workshop.toolkit.filters.VerticalWaves
 
 
-{ program: Program ->
+{ program: PersistentVideoProgram ->
     program.apply {
 
         val gaussianBlur = GaussianBlur().apply {
@@ -23,7 +24,6 @@ import org.openrndr.workshop.toolkit.filters.VerticalWaves
             spread = 1.0
             window = 25
         }
-        var videoPlayer: FFMPEGVideoPlayer? = null
 
         window.drop.listen {
 
@@ -60,12 +60,12 @@ import org.openrndr.workshop.toolkit.filters.VerticalWaves
             }
 
             layer {
-                blend(add)
+                blend(Add())
                 post(GaussianBlur()) {
-                    sigma = Math.random() * 4.0
+                    sigma = 1.0
                 }
                 draw {
-                    drawer.fontMap = FontImageMap.fromUrl("file:data/fonts/IBMPlexMono-Regular.ttf", 64.0, 2.0)
+                    drawer.fontMap = FontImageMap.fromUrl("file:data/fonts/IBMPlexMono-Regular.ttf", 32.0, 2.0)
                     drawer.text("VIDEO", Math.random() * drawer.width, Math.random() * drawer.height)
                 }
             }

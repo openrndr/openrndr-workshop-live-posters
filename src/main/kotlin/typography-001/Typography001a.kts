@@ -29,7 +29,7 @@ import org.openrndr.workshop.toolkit.filters.VerticalWaves
                 post(GaussianBlur()) {
                     gain = 1.0
                     spread = 1.0
-                    window = 25
+                    window = 5
                     sigma = Math.cos(seconds) * 5.0 + 5.0
                 }
                 draw {

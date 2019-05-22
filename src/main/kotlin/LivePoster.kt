@@ -14,7 +14,7 @@ fun main() = application {
 
     program {
         extend(Olive<Program>()) {
-//            script = "src/main/kotlin/animations-001/Animations001a.kts"
+            script = "src/main/kotlin/animations-001/Animations001a.kts"
 //            script = "src/main/kotlin/animations-001/Animations001b.kts"
 //
 //            script = "src/main/kotlin/effects-001/Effects001a.kts"
@@ -29,20 +29,14 @@ fun main() = application {
 //            script = "src/main/kotlin/effects-003/Effects003b.kts"
 //            script = "src/main/kotlin/effects-003/Effects003c.kts"
 //
-//            script = "src/main/kotlin/rss-001/Rss001a.kts"
+//            script = "src/main/kotlin/rss-001/Rss001a.kts" // not working
 //
 //            script = "src/main/kotlin/shapes-001/Shapes001a.kts"
 //            script = "src/main/kotlin/shapes-001/Shapes001b.kts"
 //            script = "src/main/kotlin/shapes-001/Shapes001c.kts"
 //
-//            script = "src/main/kotlin/textfile-001/TextFile001a.kts"
-//
 //            script = "src/main/kotlin/typography-001/Typography001a.kts"
 //            script = "src/main/kotlin/typography-001/Typography001b.kts"
-//
-//            script = "src/main/kotlin/video-001/Video001a.kts"
-//            script = "src/main/kotlin/video-001/Video001b.kts"
-
 
         }
    }

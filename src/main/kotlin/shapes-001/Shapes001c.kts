@@ -56,6 +56,7 @@ import org.openrndr.shape.contour
 
         extend {
             poster.draw(drawer)
+            Thread.sleep(100)
         }
     }
 }

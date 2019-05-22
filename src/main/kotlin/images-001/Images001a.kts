@@ -83,7 +83,7 @@ fun Rectangle.translated(vector2: Vector2): Rectangle {
                             val iw = imageBounds.width * 0.1
                             val ih = imageBounds.height * 0.1
                             val spacing = 2.0
-                            val stacking = 100
+                            val stacking = 10
                             val margin = spacing * stacking
 
                             val targetBounds = Rectangle(Math.random() * (width - iw + margin / 2.0) - margin, Math.random() * (height - ih + margin / 2.0) - margin, imageBounds.width * 0.1, imageBounds.height * 0.1)

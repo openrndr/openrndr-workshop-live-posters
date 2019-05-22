@@ -6,6 +6,7 @@ import org.openrndr.draw.FontImageMap
 import org.openrndr.draw.RenderTarget
 import org.openrndr.extensions.Screenshots
 import org.openrndr.extra.compositor.*
+import org.openrndr.filter.blend.Add
 import org.openrndr.filter.blend.add
 import org.openrndr.filter.blur.GaussianBlur
 import org.openrndr.math.Vector2
@@ -38,12 +39,12 @@ import org.openrndr.workshop.toolkit.filters.Waves
                 }
                 draw {
                     drawer.fontMap = FontImageMap.fromUrl("file:data/fonts/IBMPlexMono-Regular.ttf", 32.0, scale)
-                    drawer.texts((0..40).map { "My name is" }, (0..40).map { Vector2(20.0, it * 20.0) })
+                    drawer.texts((0..40).map { "My a name is" }, (0..40).map { Vector2(20.0, it * 20.0) })
                 }
             }
 
             layer {
-                blend(add)
+                blend(Add())
                 post(VerticalWaves()) {
                     amplitude = 0.1
                     period = Math.PI * 2.0 * 2.0
@@ -52,7 +53,7 @@ import org.openrndr.workshop.toolkit.filters.Waves
                 post(GaussianBlur()) {
                     gain = 1.0
                     spread = 1.0
-                    window = (25 * scale).toInt()
+                    window = (5 * scale).toInt()
                     sigma = (Math.cos(seconds) * 5.0 + 5.0) * scale
                 }
                 draw {

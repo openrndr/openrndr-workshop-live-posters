@@ -15,10 +15,8 @@ import org.openrndr.workshop.toolkit.filters.VerticalStepWaves
 import org.openrndr.workshop.toolkit.filters.VerticalWaves
 
 
-{ program: Program ->
+{ program: PersistentTextProgram ->
     program.apply {
-
-        var text = mutableListOf("drop a text file here")
 
         window.drop.listen {
             text = it.files[0].readLines().toMutableList()
@@ -37,7 +35,7 @@ import org.openrndr.workshop.toolkit.filters.VerticalWaves
                     phase = seconds
                 }
                 draw {
-                    drawer.fontMap = FontImageMap.fromUrl("file:data/fonts/IBMPlexMono-Regular.ttf", 32.0, scale)
+                    drawer.fontMap = FontImageMap.fromUrl("file:data/fonts/IBMPlexMono-Regular.ttf", 82.0, scale)
                     drawer.texts((0 until text.size).map { text[it] }, (0 until text.size).map { Vector2(20.0, (it + 1) * 20.0) })
                 }
             }

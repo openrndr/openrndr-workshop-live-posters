@@ -64,6 +64,7 @@ import org.openrndr.shape.LineSegment
 
         extend {
             poster.draw(drawer)
+            Thread.sleep(100)
         }
     }
 }

@@ -1,24 +1,15 @@
 @file:Suppress("UNUSED_LAMBDA_EXPRESSION")
 
-import org.openrndr.PresentationMode
 import org.openrndr.Program
 import org.openrndr.color.ColorRGBa
-import org.openrndr.draw.ColorBuffer
 import org.openrndr.draw.FontImageMap
-import org.openrndr.draw.MagnifyingFilter
-import org.openrndr.draw.MinifyingFilter
 import org.openrndr.extensions.Screenshots
 import org.openrndr.extra.compositor.*
 import org.openrndr.filter.blend.Multiply
-import org.openrndr.filter.blend.multiply
 import org.openrndr.math.Vector2
 import org.openrndr.rss.RSSParser
 import org.openrndr.shape.Rectangle
 import org.openrndr.text.Writer
-import org.openrndr.workshop.toolkit.filters.Separate
-import org.openrndr.workshop.toolkit.filters.StepWaves
-import org.openrndr.workshop.toolkit.filters.VerticalStepWaves
-import org.openrndr.workshop.toolkit.filters.Waves
 import java.net.URL
 
 fun Rectangle.translated(vector2: Vector2): Rectangle {
