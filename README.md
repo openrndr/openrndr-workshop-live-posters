@@ -20,7 +20,7 @@ In this project we use `orx-olive` to create generative posters. [`orx-live`](ht
 ## Post Efffects
 
 * `BoxBlur`
-* `ApproximateGaussianBlur
+* `ApproximateGaussianBlur`
 * `GradientMap`
 * `Threshold`
 * `EdgeDetect`
